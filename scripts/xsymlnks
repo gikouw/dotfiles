@@ -1,0 +1,37 @@
+#!/bin/bash
+
+cln() {
+    if [ -e "$2" ] || [ -L "$2" ]; then
+        rm -rfv "$2"
+    fi
+
+    mkdir -p "$(dirname "$2")"
+
+    ln -s "$1" "$2"
+    echo "linked $1 -> $2"
+}
+
+NCONF_DIR="$HOME/wnem/dotfiles"
+
+for src in "$NCONF_DIR"/*; do
+name=$(basename "$src")
+
+    if [[ "$name" == *.old  || "$name" == 99-font.conf ]]; then
+        echo "Skipping: $name"
+        continue
+
+    #unusuals
+    elif [[ "$name" == vim ]]; then
+        target="$HOME/.$name"
+    elif [[ "$name" == gf2_config.ini ]]; then
+        target="$HOME/.config/$name"
+
+
+    elif [[ -d "$src" ]]; then
+        target="$HOME/.config/$name" 
+    else
+        target="$HOME/.$name"       
+    fi
+    cln "$src" "$target"
+
+done
