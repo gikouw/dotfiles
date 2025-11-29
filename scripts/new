@@ -1,0 +1,14 @@
+#!/bin/sh
+
+for s in main extras; do
+    tmux new-session -ds "$s" -c "$HOME" zsh
+    tmux new-window -t "$s":2 -c "$HOME" zsh
+    tmux select-window -t "$s":1
+done
+
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t main
+else
+    tmux attach -t main
+fi
+

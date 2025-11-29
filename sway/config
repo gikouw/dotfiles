@@ -1,0 +1,105 @@
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+### Variables
+set $left h
+set $right l
+set $up k
+set $down j
+set $mod Mod4
+set $term foot
+
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec wexe
+bindsym $mod+e exec wemjpkr
+bindsym $mod+o exec xwall
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+Shift+r reload
+bindsym $mod+w kill
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+floating_modifier $mod normal
+
+bindsym $mod+$left focus left
+bindsym $mod+$right focus right
+bindsym $mod+$up focus up
+bindsym $mod+$down focus down
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$down move down
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+
+bindsym $mod+T workspace T
+bindsym $mod+Shift+T move container to workspace T; workspace  T
+bindsym $mod+F workspace F
+bindsym $mod+Shift+F move container to workspace F; workspace  F
+#for_window [title="specific-btop"] move to workspace T
+assign [app_id="Firefox"] 2
+
+bindsym $mod+Shift+m layout toggle splitv splith
+bindsym $mod+g split v
+bindsym $mod+v split h
+bindsym $mod+Shift+space floating toggle
+
+bar {
+    position top
+
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+
+output eDP-1 scale 1.0
+output eDP-1 scale_filter nearest
+
+#seat seat0 xcursor_theme miku-cursor-linux 36
+font pango:Iosevka 11
+input type:touchpad {
+	tap enabled
+    drag_lock disabled
+	pointer_accel 0.2
+    dwt no
+}
+
+default_border normal
+default_border pixel 1
+client.focused F0F0F0 F0F0F0 000000 F0F0F0 F0F0F0
+smart_borders on
+
+bindsym $mod+Shift+c exec rec 
+bindsym $mod+Shift+o exec pkill -INT wf-recorder
+
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5 && vol
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5 && vol
+bindsym XF86AudioMute exec pamixer --toggle-mute && vol
+bindsym XF86AudioMicMute exec pamixer --default-source --toggle-mute
+
+exec gammastep -l 0:0 -t 3500:3500
+
+set $fcitx_env GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx INPUT_METHOD=fcitx
+
+exec fcitx5
+exec mako
+exec lowbat
+exec swww-daemon
+exec pipewire
+exec $term -e new
+#exec $term -t specific-btop -e btop
+exec firefox
+

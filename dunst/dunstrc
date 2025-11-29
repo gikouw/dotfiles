@@ -1,0 +1,7 @@
+[global]
+font = "Iosevka 20"
+
+background = "#00000088"
+
+width = 400 
+height = (0, 600)  

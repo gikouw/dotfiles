@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/void/wnem/dotfiles/.git'
+let g:netrw_dirhist_6='/home/nem'
+let g:netrw_dirhist_5='/'
+let g:netrw_dirhist_4='/etc'
+let g:netrw_dirhist_3='/home/nem'
+let g:netrw_dirhist_2='/home/nem/comp_project'
+let g:netrw_dirhist_1='/home/nem/rc'

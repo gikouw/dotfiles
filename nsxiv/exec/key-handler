@@ -1,0 +1,13 @@
+#!/bin/sh
+step=$(( (RANDOM % 2) == 0 ? 2 : 100 ))
+while read file
+do
+        case "$1" in
+        "d")
+                mv "$file" ~/.trash ;;
+        "c")
+				swww img "$file" --transition-fps 60 --transition-type any --transition-step $step ;;
+        "z")
+                feh --bg-fill "$file" ;;
+        esac
+done

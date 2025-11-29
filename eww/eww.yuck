@@ -1,0 +1,52 @@
+
+
+;; CLOCK
+(defpoll time :interval "1s" "date '+%H:%M:%S'")
+
+(defwidget clock []
+    (label :text time :class "clock"))
+
+(defwindow clock-window
+    :monitor 0
+    :focusable "false" 
+    :geometry (geometry :x 1040 :y 40 :width 100 :height 80)
+    :stacking "fg"
+    (clock))
+
+;; MUTE
+(defwidget mute-widget []
+    (label :text "󰖁" :class "mute" ))
+
+(defwindow mute-window
+  :monitor 0
+  :geometry (geometry :width 150 :height 50)
+  :anchor "center"
+  :stacking "fg"
+  :wm-ignore true
+  (mute-widget))
+
+;; SYSINFO
+(defpoll str_mem :interval "1s" `sysinfo mem`)
+(defpoll str_bat :interval "5s" `sysinfo bat`)
+(defpoll str_blight :interval "69s" `sysinfo blight`)
+(defpoll str_volume :interval "69s" `sysinfo volume`)
+(defpoll str_uptime :interval "60s" `uptime -p`)
+
+(defwidget sys_info_widget []
+  (box :orientation "vertical" :spacing 0 :halign "start" :valign "start"
+    (label :text str_uptime :class "sys_info_class" :halign "start" :valign "start")
+    (label :text str_bat :class "sys_info_class" :halign "start" :valign "start")
+    (label :text str_volume :class "sys_info_class" :halign "start" :valign "start")
+    (label :text str_blight :class "sys_info_class" :halign "start" :valign "start")
+    (label :text str_mem :class "sys_info_class" :halign "start" :valign "start")
+  )
+)
+
+(defwindow sys_info_window
+  :monitor 0
+  :geometry (geometry :width 200 :height 70)
+  :stacking "fg"
+  :anchor "top left"
+  (sys_info_widget)
+)
+

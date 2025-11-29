@@ -1,0 +1,67 @@
+@define-color foreground #111111;
+@define-color foreground-inactive #aaaaaa;
+
+* {
+    font-family: Iosevka;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: @foreground;
+/*    border-radius: 14px; */
+}
+
+#workspaces button {
+    color: @foreground;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+
+#workspaces button.active {
+	color: #ffffff;
+	font-weight: bold;
+	border-bottom: 1px solid #ffffff;
+	border-radius: 0px; 
+}
+
+#workspaces button.empty {
+    color: @foreground-inactive;
+}
+
+#custom-clock {
+    font-family: Noto Serif CJK JP;
+}
+
+#memory,
+#wireplumber,
+#battery,
+#language,
+#tray,
+#network,
+#mpris,
+#custom-clock,
+#bluetooth {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	transition: background 0.2s ease, color 0.2s ease;
+} 
+
+#memory:hover,
+#wireplumber:hover,
+#battery:hover,
+#language:hover,
+#network:hover,
+#tray:hover,
+#mpris:hover,
+#custom-clock:hover,
+#bluetooth:hover {
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+#mpris.playing {
+color: #008000;
+}
+

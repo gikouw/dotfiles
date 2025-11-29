@@ -1,0 +1,19 @@
+font=Iosevka 18
+background-color=#00000088
+text-color=#ffffff
+border-color=#00ff55
+border-size=1
+border-radius=0
+width=460
+height=1000
+padding=8,10
+default-timeout=5000
+
+anchor=top-right
+margin=30
+
+progress-color=#55bb55
+
+[urgency=critical]
+border-color=#ff0055
+progress-color=#bb5555

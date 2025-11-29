@@ -1,0 +1,16 @@
+#!/bin/bash
+while true; do
+
+    BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT0/capacity)
+    BATTERY_STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+    if [ "$BATTERY_STATUS" = "Discharging" ] && [ "$BATTERY_LEVEL" -lt 21 ]; then
+        notify-send -u critical "Low Battery" "${BATTERY_LEVEL}%" \
+            -h int:value:$BATTERY_LEVEL \
+            -h string:x-canonical-private-synchronous:lowbat
+    fi
+
+    sleep 60
+
+done
+

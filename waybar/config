@@ -1,0 +1,94 @@
+
+{
+		"layer": "top",
+		"position": "top",
+		"height": 28,
+		"spacing": 5,
+
+		"modules-left": ["hyprland/workspaces", "mpris"],
+		"modules-center": ["custom/clock"],
+		"modules-right": ["memory", "wireplumber", "battery" , "network", "bluetooth"],
+
+		"hyprland/workspaces": {
+			"format": "{name}",
+			"on-click": "activate",
+//			"format-icons": {
+//				"active": " ",
+//				"default": " "
+//			},
+			"icon-size": 10,
+			"sort-by-number": true,
+			"persistent-workspaces": {
+				"1": [],
+			}
+		},
+
+		"custom/clock": {
+			"exec": "date '+%-m月%-d日 (%a) | %H:%M'",
+			"interval": 60,
+			"tooltip": false
+		},
+
+		"wireplumber": {
+			"format": "\udb81\udd7e  {volume}%",
+			"max-volume": 100,
+			"scroll-step": 5
+		},
+
+		"battery": {
+			"bat": "BAT0",
+			"interval": 60,
+			"format": "{icon}  {capacity}%",
+			"format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+		},
+
+		"memory": {
+			"interval": 5,
+			"format": "\uf4bc  {used:0.1f}G"
+		},
+
+		"tray": {
+			"icon-size": 16,
+			"pin-workspaces": false
+		},
+
+		"network": {
+			"format": "",
+			"format-ethernet": "\udb83\udc9d",
+			"format-wifi": "{icon} ",
+			"format-disconnected": "\udb83\udc9c",
+			"format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+			"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+			"tooltip-format-ethernet": "{ifname}",
+			"tooltip-format-disconnected": "Disconnected",
+		},
+
+		"bluetooth": {
+			"format": "\udb80\udcaf",
+			"format-disabled": "\udb80\udcb2",
+			"format-connected": "\udb80\udcb1",
+			"tooltip-format": "{controller_alias}\t{controller_address}",
+			"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+			"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+		},
+
+		"mpris": {
+			"format": " 󰽴 {title} - {artist}",
+			"format-paused": " 󰽴 {title} - {artist}",
+			"max-length": 40,
+			"interval": 0.50,
+			"on-click": "playerctl play-pause",
+			"on-click-right": "playerctl next",
+			"on-click-middle": "playerctl previous",
+			"status-icons": {
+				"playing": " ",
+				"paused": " ",
+				"stopped": " "
+			}
+		}
+
+
+
+},
+
+	}

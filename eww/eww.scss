@@ -1,0 +1,83 @@
+* {
+  all: unset;
+  font-family: "IosevkaTerm Nerd Font", monospace;
+  color: white;
+}
+
+
+.sys_info_class {
+  background-color: rgb(0, 0, 0);
+  font-size: 20;
+}
+
+.clock {
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-weight : 300;
+  border-radius: 16px;
+}
+
+.mute {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 36px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+
+/** Generic window ***********************************/
+.genwin {
+    background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 16px;
+}
+
+/** System ********************************************/
+.iconcpu, .iconmem, .iconbright, .iconbat {
+	font-size : 32px;
+	font-weight : normal;
+    padding-right: 10px;
+}
+.iconcpu {
+	color: #BF616A;
+}
+.iconmem {
+	color: #A3BE8C;
+}
+.iconbright {
+	color: #EBCB8B;
+}
+.iconbat {
+	color: #88C0D0;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough {
+	all: unset;
+    background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 16px;
+	min-height: 28px;
+	min-width: 240px;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough highlight {
+	all: unset;
+	border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+	background-color: #BF616A;
+}
+.mem_bar scale trough highlight {
+	background-color: #A3BE8C;
+}
+.bright_bar scale trough highlight {
+	background-color: #EBCB8B;
+}
+.bat_bar scale trough highlight {
+	background-color: #88C0D0;
+}
+
+
