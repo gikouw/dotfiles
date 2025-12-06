@@ -1,9 +1,9 @@
 set wrap
-set undofile
 set clipboard=unnamedplus
 set number 
 set relativenumber 
 set shiftwidth=4
+set splitbelow
 
 "set smartindent
 
@@ -27,10 +27,27 @@ nnoremap <C-k> :m .-2<CR>==
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-nnoremap <F5> :make -B<CR>
+nnoremap <leader>1 :sb 1<CR>
+nnoremap <leader>2 :sb 2<CR>
+nnoremap <leader>3 :sb 3<CR>
+nnoremap <leader>4 :sb 4<CR>
+nnoremap <leader>5 :sb 5<CR>
+nnoremap <leader>6 :sb 6<CR>
+nnoremap <leader>7 :sb 7<CR>
+nnoremap <leader>8 :sb 8<CR>
+nnoremap <leader>9 :sb 9<CR>
+nnoremap <leader>w :q<CR>
+nnoremap <leader>e :Term<CR>
 
-" Make d not yank
-nnoremap d "_d
-xnoremap d "_d
+nnoremap <F5> :!./run.sh<CR>
+
+tnoremap <Esc> <C-\><C-n>
+
+" TODO: handle the case when the file already exists 
+command! Initrun execute "normal :new run.sh\<CR>:w\<CR>:silent !chmod +x run.sh\<CR>I#!/bin/sh\<Esc>o"
+command! So execute "normal :source $MYVIMRC\<CR>"
+command! Term execute "normal :new | term zsh\<CR>i\<CR>"
+
+" Make c not yank
 nnoremap c "_c
 xnoremap c "_c
