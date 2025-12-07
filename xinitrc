@@ -5,21 +5,22 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export INPUT_METHOD=fcitx
 
-#still some problems with i3 in void
-#export XCURSOR_SIZE=48
-#export XCURSOR_THEME=miku-cursor-linux
-#xsetroot -cursor_name left_ptr
-#xrdb -merge ~/.Xresources
+export QT_SCALE_FACTOR=1.5
+export GDK_DPI_SCALE=1.25
+
+export XCURSOR_SIZE=48
+export XCURSOR_THEME=miku-cursor-linux
+
+xsetroot -cursor_name left_ptr
 
 pipewire &
 picom &
 dunst &
-redshift -O 3500 
+redshift -O 3500
 fcitx5 &
 
 synclient TapButton1=1 TapButton2=3 TapButton3=2 \
-            MinSpeed=3 MaxSpeed=3 AccelFactor=0
+            MinSpeed=4 MaxSpeed=4 AccelFactor=0
 
-exec i3
-
+exec bspwm
 
