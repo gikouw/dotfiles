@@ -1,23 +1,21 @@
 PROMPT='
-[%1~] '
+%~ '
 
-setopt ignore_eof       
-setopt auto_cd         
-setopt correct        
+setopt ignore_eof
+setopt auto_cd
+setopt correct
 
 export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
 bindkey -v '^?' backward-delete-char
 
 export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
-export QT_SCALE_FACTOR=1.5
-export GDK_DPI_SCALE=1.25 
 
+alias ls="ls -lrth"
 alias rm="trash-put"
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
 alias xq="xbps-query"
 alias ss="sudo systemctl"
-alias blc='bluetoothctl connect 84:0F:2A:C9:28:F2'
 #alias ttc='xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Tapping Enabled" 1'
 alias sot="tmux source-file ~/.tmux.conf"
 alias sop="source ~/venv/bin/activate"
@@ -72,14 +70,6 @@ disable_sv() {
     set -x
     sudo rm "/var/service/$1"
 }
-
-
-#pi() {
-#    paru -S $(paru -Slq | fzf --multi --preview 'paru -Si {}')
-#}
-#pr() {
-#    paru -Rns $(paru -Qqe | fzf --multi --preview 'paru -Qi {}')
-#}
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
