@@ -3,19 +3,10 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
-bspc config modifier Mod4
+bspc config border_width 0
+bspc config window_gap 0
 
-term=alacritty
+bspc config pointer_motion_interval 1
+bspc config focus_follows_pointer true
 
-# Border settings
-bspc config border_width 1
-bspc config window_gap 5
-bspc config focused_border_color "#50C878"
-bspc config normal_border_color "#101010"
-
-feh --bg-scale ~/opt/walls/grass.jpg &
-lowbat &
-$term -e new &
-
-# Start bspwm
 bspc wm -a

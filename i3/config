@@ -11,7 +11,7 @@ floating_modifier $mod
 ### Key bindings
 bindsym $mod+Return exec $term
 bindsym $mod+w kill
-bindsym $mod+Shift+S exec bash -c 'maim -s | swappy -f -'
+bindsym $mod+Shift+S exec flameshot gui
 bindsym $mod+o exec sxiv -t ~/opt/walls
 for_window [class="^Nsxiv$"] floating enable, resize set 1000 700, move position center
 
@@ -59,12 +59,15 @@ assign [instance="Navigator"] 2
 #assign [instance="youtube.com"] Y
 
 # Layout
-workspace_layout tabbed
+#workspace_layout tabbed
+
+bindsym $mod+g split v
+bindsym $mod+v split h
 bindsym $mod+Shift+space floating toggle
 
 ### Appearance
 font pango:Iosevka 13
-for_window [class=".*"] border normal
+for_window [class=".*"] border pixel 1
 default_border pixel 1
 smart_borders on
 client.focused #5FAF9F #5FAF9F #FFFFFF #5FAF9F #5FAF9F
@@ -85,7 +88,6 @@ bindsym XF86AudioMicMute exec pamixer --default-source --toggle-mute
 #exec --no-startup-id xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Tapping Enabled" 1
 #exec --no-startup-id xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.2
 
-#exec xsetroot -cursor_name left_ptr
 exec lowbat
 exec $term -e new
 exec $term -t specific-btop -e btop

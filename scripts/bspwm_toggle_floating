@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$(bspc query -T -n focused | jq -r '.client.state')" = "tiled" ]; then
+    bspc node -t floating
+else 
+    bspc node -t tiled
+fi
