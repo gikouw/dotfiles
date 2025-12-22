@@ -82,7 +82,7 @@ super + shift + 8
 super + shift + 9
     bspc node -d 9 --follow
 
-super + shift + space
+super + v
     bspwm_toggle_floating
 
 # Media keys
