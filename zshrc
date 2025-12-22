@@ -8,6 +8,8 @@ setopt correct
 export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
 bindkey -v '^?' backward-delete-char
 
+source ~/.xenv
+
 export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
 
 alias ls="ls -lrth"
@@ -83,8 +85,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-cat $HOME/noticeboard.txt
-
+bindkey -M vicmd '^[[A' history-substring-search-up
+bindkey -M vicmd '^[[B' history-substring-search-down
