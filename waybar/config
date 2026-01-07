@@ -7,7 +7,7 @@
 
 		"modules-left": ["hyprland/workspaces", "mpris"],
 		"modules-center": ["custom/clock"],
-		"modules-right": ["memory", "wireplumber", "battery" , "network", "bluetooth"],
+		"modules-right": ["tray", "memory", "wireplumber", "battery" , "network", "bluetooth"],
 
 		"hyprland/workspaces": {
 			"format": "{name}",
