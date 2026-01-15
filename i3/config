@@ -10,13 +10,14 @@ floating_modifier $mod
 
 ### Key bindings
 bindsym $mod+Return exec $term
-bindsym $mod+w kill
-bindsym $mod+Shift+S exec flameshot gui
+bindsym Mod1+F4 kill
+bindsym $mod+Shift+S exec maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+o exec sxiv -t ~/opt/walls
+bindsym $mod+Shift+b exec xtouchpad
 for_window [class="^Nsxiv$"] floating enable, resize set 1000 700, move position center
 
-bindsym $mod+d exec exe
-bindsym $mod+e exec emjpkr
+#bindsym $mod+d exec exe
+#bindsym $mod+e exec emjpkr
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
@@ -59,10 +60,10 @@ assign [instance="Navigator"] 2
 #assign [instance="youtube.com"] Y
 
 # Layout
-#workspace_layout tabbed
+workspace_layout tabbed
 
-bindsym $mod+g split v
-bindsym $mod+v split h
+#bindsym $mod+g split v
+#bindsym $mod+v split h
 bindsym $mod+Shift+space floating toggle
 
 ### Appearance
@@ -72,23 +73,18 @@ default_border pixel 1
 smart_borders on
 client.focused #5FAF9F #5FAF9F #FFFFFF #5FAF9F #5FAF9F
 
+#bar {
+    #status_command i3status
+#}
+
 ### Media Keys 
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-#bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && vol
-#bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && vol
-#bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-#bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-bindsym XF86AudioRaiseVolume exec pamixer --increase 5 && vol
-bindsym XF86AudioLowerVolume exec pamixer --decrease 5 && vol
-bindsym XF86AudioMute exec pamixer --toggle-mute
-bindsym XF86AudioMicMute exec pamixer --default-source --toggle-mute
-
-### Touchpad settings
-#exec --no-startup-id xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Tapping Enabled" 1
-#exec --no-startup-id xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.2
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0 && vol
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && vol
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 exec lowbat
-exec $term -e new
 exec $term -t specific-btop -e btop
 exec firefox

@@ -2,10 +2,8 @@
 
 source ~/.xenv
 
-xsetroot -cursor_name left_ptr
 xset r rate 300 25
 
-pipewire &
 picom &
 dunst &
 lowbat &
@@ -14,8 +12,25 @@ redshift -O 3500
 fcitx5 &
 alacritty -e new &
 
-synclient TapButton1=1 TapButton2=3 TapButton3=2 \
-            MinSpeed=4 MaxSpeed=4 AccelFactor=0
+if [ -r /etc/os-release ]; then
+    . /etc/os-release
 
-exec bspwm
+    if [ "$ID" = "void" ]; then
+    synclient TapButton1=1 TapButton2=3 TapButton3=2 \
+		MinSpeed=4 MaxSpeed=4 AccelFactor=0
+    else
+	xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Tapping Enabled" 1
+	xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" "libinput Accel Speed" 0.5
+	xinput set-prop "MSFT0001:00 06CB:CE2D Touchpad" \
+	  "libinput Disable While Typing Enabled" 0
+    fi
+    pipewire &
+    pipewire-pulse &
+    wireplumber &
 
+else
+    echo "Cannot determine OS" >&2
+    exit 1
+fi
+
+exec i3
