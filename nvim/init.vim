@@ -4,7 +4,7 @@ set number
 set relativenumber
 set shiftwidth=4
 set splitbelow
-set noundofile
+set undofile
 set list
 
 "set smartindent
