@@ -22,7 +22,7 @@ x() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  file=$(find . -maxdepth 4 -type f | fzf --height=40% )
+  file=$(find . -maxdepth 4 -type f ! -path '*/.*' | fzf --height=40% )
   [ -z "$file" ] && return 1
 
   echo "$cmd \"$file\""
@@ -36,7 +36,7 @@ f() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  dir=$(find ~/ -maxdepth 4 -type d | fzf --height=40% )
+  dir=$(find ~/ -maxdepth 4 -type d ! -path '*/.*' | fzf --height=40% )
   [ -z "$dir" ] && return 1
 
   echo "$cmd \"$dir\""
