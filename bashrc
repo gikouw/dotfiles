@@ -10,8 +10,6 @@ shopt -s cdspell
 shopt -s autocd
 
 export HISTCONTROL=ignoredups
-export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
-export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
 
 alias rm="trash-put"
 alias xi="sudo xbps-install"
@@ -22,6 +20,8 @@ alias ss="sudo systemctl"
 alias sot="tmux source-file ~/.tmux.conf"
 alias sop="source ~/venv/bin/activate"
 alias mpvv='mpv --ytdl-raw-options=cookies-from-browser=brave -ytdl-format="bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+
+bind '"\C-l": clear-screen'
 
 lfm() {
   yt-dlp -f bestaudio "ytsearch:$1" -o "$1.webm"
@@ -37,7 +37,7 @@ x() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  file=$(fd -t f -d 4 .  . | fzf --height=40% ) 
+  file=$(find . -maxdepth 4 -type f | fzf --height=40% )
   [ -z "$file" ] && return 1
 
   echo "$cmd \"$file\""
@@ -51,7 +51,7 @@ f() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  dir=$(fd -t d -d 4 . ~/ | fzf --height=40% )
+  dir=$(find ~/ -maxdepth 4 -type d | fzf --height=40% )
   [ -z "$dir" ] && return 1
 
   echo "$cmd \"$dir\""
@@ -72,5 +72,3 @@ disable_sv() {
     set -x
     sudo rm "/var/service/$1"
 }
-
-cat $HOME/noticeboard.txt

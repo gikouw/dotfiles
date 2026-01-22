@@ -5,12 +5,7 @@ setopt ignore_eof
 setopt auto_cd
 setopt correct
 
-export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
 bindkey -v '^?' backward-delete-char
-
-source ~/.xenv
-
-export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
 
 alias ls="ls -lrth"
 alias rm="trash-put"
@@ -27,7 +22,7 @@ x() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  file=$(fd -t f -d 4 .  . | fzf --height=40% ) 
+  file=$(find . -maxdepth 4 -type f | fzf --height=40% )
   [ -z "$file" ] && return 1
 
   echo "$cmd \"$file\""
@@ -41,7 +36,7 @@ f() {
   cmd="$*"
   [ -z "$cmd" ] && { echo "Usage: f <command>"; return 1; }
 
-  dir=$(fd -t d -d 4 . ~/ | fzf --height=40% )
+  dir=$(find ~/ -maxdepth 4 -type d | fzf --height=40% )
   [ -z "$dir" ] && return 1
 
   echo "$cmd \"$dir\""
