@@ -2,7 +2,7 @@
 #never fucking do this again... wasted my 2 days debugging asm
 
 PS1="
-\W "
+\w "
 
 set -o ignoreeof
 set -o vi
@@ -11,6 +11,7 @@ shopt -s autocd
 
 export HISTCONTROL=ignoredups
 
+alias ls="ls -lrth"
 alias rm="trash-put"
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
