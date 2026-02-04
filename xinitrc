@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xset r rate 300 25
-setxkbmap -option compose:rctrl
+setxkbmap -option compose:ralt
 
 picom &
 dunst &
