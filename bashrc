@@ -45,7 +45,11 @@ x() {
   eval "$cmd \"$file\""
 }
 
-alias e="x $EDITOR"
+if [ "$EDITOR" = "" ]; then
+    alias e="x vi"
+else
+    alias e="x $EDITOR"
+fi
 
 f() {
   local cmd dir
