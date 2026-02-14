@@ -74,9 +74,9 @@ default_border pixel 1
 smart_borders on
 client.focused #5FAF9F #5FAF9F #FFFFFF #5FAF9F #5FAF9F
 
-#bar {
-    #status_command i3status
-#}
+bar {
+    status_command i3status
+}
 
 ### Media Keys 
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
