@@ -1,6 +1,6 @@
 {
     "denn": {
-        "DATA_PATH": "/home/void/opt/Redbot/denn",
+        "DATA_PATH": "/home/nem/.local/share/Redbot/denn",
         "COG_PATH_APPEND": "cogs",
         "CORE_PATH_APPEND": "core",
         "STORAGE_TYPE": "JSON",
