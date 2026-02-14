@@ -5,6 +5,7 @@ SETUVAR --export GTK_IM_MODULE:fcitx
 SETUVAR --export INPUT_METHOD:fcitx
 SETUVAR --export QT_IM_MODULE:fcitx
 SETUVAR --export QT_SCALE_FACTOR:1\x2e5
+SETUVAR --export TERMINAL_EMULATOR:/usr/local/bin/ghostty
 SETUVAR --export XCURSOR_SIZE:48
 SETUVAR --export XCURSOR_THEME:Win7OS\x2dCursors
 SETUVAR --export XMODIFIERS:\x40im\x3dfcitx

@@ -8,6 +8,12 @@ else
     set -x EDITOR vi
 end
 
+if command -sq ghostty
+    set -x TERMINAL_EMULATOR (command -v ghostty)
+else
+    set -x TERMINAL_EMULATOR alacritty
+end
+
 if test -r /etc/os-release
 
     set -x DISTRO (grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')

@@ -9,7 +9,7 @@ lowbat &
 unclutter &
 redshift -O 3500
 fcitx5 &
-alacritty -e new &
+$TERMINAL_EMULATOR -e new &
 
 if [ "$DISTRO" = "void" ]; then
     synclient TapButton1=1 TapButton2=3 TapButton3=2 \

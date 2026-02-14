@@ -4,6 +4,7 @@ if [ -r /etc/os-release ]; then
 fi
 
 export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
+export TERMINAL_EMULATOR=$(command -v ghostty || echo alacritty)
 export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
 
 export GTK_IM_MODULE=fcitx
