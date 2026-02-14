@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xset r rate 300 25
+xset r rate 200 30
 setxkbmap -option compose:ralt
 
 picom &
