@@ -13,7 +13,7 @@ export XMODIFIERS=@im=fcitx
 export INPUT_METHOD=fcitx
 
 export GDK_SCALE=2
-export QT_SCALE_FACTOR=1.5
+#export QT_SCALE_FACTOR=1.5
 
 export XCURSOR_SIZE=48
 export XCURSOR_THEME=Win7OS-Cursors
