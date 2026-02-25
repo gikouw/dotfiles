@@ -52,10 +52,3 @@ command! Term execute "normal :new | term zsh\<CR>:file term\<CR>i\<CR>"
 " Make c not yank
 nnoremap c "_c
 xnoremap c "_c
-
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap [ []<Esc>i
-inoremap < <><Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
