@@ -1,6 +1,5 @@
-### Variables
+
 set $mod Mod4
-set $term $TERMINAL_EMULATOR
 set $left h
 set $right l
 set $up k
@@ -8,11 +7,12 @@ set $down j
 
 floating_modifier $mod
 
-### Key bindings
-#bindsym $mod+Return exec $term
-bindsym $mod+Return exec $term
-bindsym Mod1+F4 kill
-bindsym $mod+Shift+S exec maim -s | xclip -selection clipboard -t image/png
+### Keybindings
+bindsym $mod+Return exec st
+bindsym --release Mod1+F4 kill
+bindsym $mod+S exec maim | swappy -f -
+bindsym $mod+Shift+S exec maim -s | swappy -f -
+bindsym $mod+C exec diodon
 #bindsym $mod+o exec sxiv -t ~/opt/walls
 #bindsym $mod+Shift+b exec xtouchpad
 for_window [class="^Nsxiv$"] floating enable, resize set 1000 700, move position center
@@ -21,6 +21,7 @@ bindsym $mod+d exec exe
 #bindsym $mod+e exec emjpkr
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+d exec i3lock
 
 # Exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes, exit' 'i3-msg exit'"
@@ -53,6 +54,9 @@ bindsym $mod+Shift+Y move container to workspace Y; workspace  Y
 bindsym $mod+F workspace F
 bindsym $mod+Shift+F move container to workspace F; workspace  F
 
+bindsym $mod+M workspace Media
+bindsym $mod+Shift+M move container to workspace Media; workspace  Media
+
 bindsym $mod+T workspace T
 bindsym $mod+Shift+T move container to workspace T; workspace  T
 
@@ -66,8 +70,8 @@ bindsym $mod+Shift+T move container to workspace T; workspace  T
 workspace_layout tabbed
 
 bindsym $mod+a focus parent
-bindsym $mod+g split v
-bindsym $mod+v split h
+bindsym $mod+v split v
+bindsym $mod+g split h
 bindsym $mod+Shift+space floating toggle
 
 ### Appearance
@@ -79,8 +83,14 @@ smart_borders on
 #client.focused #5FAF9F #5FAF9F #FFFFFF #5FAF9F #5FAF9F
 client.focused #ADC178 #ADC178 #FFFFFF #ADC178 #ADC178
 
+
 bar {
     status_command i3status
+    colors {
+        focused_workspace  #ADC178 #ADC178 #FFFFFF
+        active_workspace   #ADC178 #ADC178 #FFFFFF
+        inactive_workspace #222222 #222222 #888888
+    }
 }
 
 # resize window (you can also use the mouse for that)
@@ -117,3 +127,5 @@ bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --li
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && vol
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+exec defo-layout

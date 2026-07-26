@@ -24,15 +24,6 @@ alias mpvv='mpv --ytdl-raw-options=cookies-from-browser=brave -ytdl-format="best
 
 bind '"\C-l": clear-screen'
 
-lfm() {
-  yt-dlp -f bestaudio "ytsearch:$1" -o "$1.webm"
-  echo -n "play $1.webm ? y/n: "
-  read -r uwu
-  if [[ "$uwu" == "y" ]]; then
-    mpv "$1.webm"
-  fi
-}
-
 x() {
   local cmd file
   cmd="$*"
@@ -64,16 +55,3 @@ f() {
 }
 
 alias c="f cd"
-
-enable_sv() {
-    [ -z "$1" ] && { echo "Usage: esv <service-name>"; return 1; }
-    [ ! -d "/etc/sv/$1" ] && { echo "Error: service directory '/etc/sv/$1' does not exist."; return 1; }
-    [ -e "/var/service/$1" ] && { echo "Service '$1' is already enabled."; return 1; }
-    sudo ln -s "/etc/sv/$1" /var/service/
-    echo "Service '$1' has been enabled."
-}
-
-disable_sv() {
-    set -x
-    sudo rm "/var/service/$1"
-}

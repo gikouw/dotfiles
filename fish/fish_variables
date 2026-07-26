@@ -1,12 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export GDK_SCALE:2
 SETUVAR --export GTK_IM_MODULE:fcitx
 SETUVAR --export INPUT_METHOD:fcitx
 SETUVAR --export QT_IM_MODULE:fcitx
 SETUVAR --export TERMINAL_EMULATOR:alacritty
-SETUVAR --export XCURSOR_SIZE:48
+SETUVAR --export XCURSOR_SIZE:42
 SETUVAR --export XCURSOR_THEME:Win7OS\x2dCursors
 SETUVAR --export XMODIFIERS:\x40im\x3dfcitx
-SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/home/nem/wnem/dotfiles/scripts\x1e/home/nem/wnem/xlocal
+SETUVAR __fish_initialized:3800
+SETUVAR fish_user_paths:/home/nem/\x2eopencode/bin\x1e/home/nem/wnem/dotfiles/scripts\x1e/home/nem/wnem/xlocal\x1e/home/nem/\x2elocal/bin

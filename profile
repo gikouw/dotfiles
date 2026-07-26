@@ -3,19 +3,19 @@ if [ -r /etc/os-release ]; then
     export DISTRO=$ID
 fi
 
+export PATH="/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
 export EDITOR=$(command -v nvim || command -v vim || command -v nano || echo vi)
-export TERMINAL_EMULATOR=$(command -v ghostty || echo alacritty)
-export PATH="$HOME/.local/bin:$HOME/wnem/xlocal:$HOME/wnem/dotfiles/scripts:$PATH"
+export TERMINAL_EMULATOR=alacritty
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export INPUT_METHOD=fcitx
 
-export GDK_SCALE=2
+#export GDK_SCALE=2
 #export QT_SCALE_FACTOR=1.5
 
-export XCURSOR_SIZE=48
+export XCURSOR_SIZE=34
 export XCURSOR_THEME=Win7OS-Cursors
 
 if [ "$DISTRO" = "void" ]; then

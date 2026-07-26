@@ -43,7 +43,7 @@
 }
 
 #custom-clock {
-    font-family: Noto Serif CJK JP;
+    font-family: Noto Serif JP;
 }
 
 #memory,
@@ -75,4 +75,3 @@
 #mpris.playing {
 color: #008000;
 }
-
